@@ -2,16 +2,18 @@
 <html>
 <head>
   <title>Videochat</title>
-  <script src="http://staging.tokbox.com/v0.91/js/tb.min.js"></script>
+  <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
+
   <script type="text/javascript">
-  	var apiKey = '14894461';
-    var sessionId = '1_MX4xMjMyMDgxfjcwLjQyLjQ3Ljc4fjIwMTItMDUtMDQgMTk6MDc6MjcuNzQ3ODI4KzAwOjAwfjAuMjkxMjYyNjY5MjQxfg';
+  	var apiKey = '1127';
+    var sessionId = '14685d1ac5907f4a2814fed28294d3f797f34955';
     var token = 'devtoken';
-		TB.setLogLevel(TB.DEBUG);
+
+	TB.setLogLevel(TB.DEBUG);
 
 	var session = TB.initSession(sessionId);
-	session.addEventListener('sessionConnected' sessionConnectedHandler );
-	session.connect(apiKey, Token)
+	session.addEventListener('sessionConnected', sessionConnectedHandler);
+	session.connect(apiKey, token)
 
 	function sessionConnectedHandler(event) {
 		alert('You have connected to a Session');
