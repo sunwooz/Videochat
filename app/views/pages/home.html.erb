@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Videochat</title>
+  <script src="http://staging.tokbox.com/v0.91/js/tb.min.js"></script>
+  <script type="text/javascript">
+  	var apiKey = '14894461';
+    var sessionId = '1_MX4xMjMyMDgxfjcwLjQyLjQ3Ljc4fjIwMTItMDUtMDQgMTk6MDc6MjcuNzQ3ODI4KzAwOjAwfjAuMjkxMjYyNjY5MjQxfg';
+    var token = 'devtoken';
+		TB.setLogLevel(TB.DEBUG);
+
+	var session = TB.initSession(sessionId);
+	session.addEventListener('sessionConnected' sessionConnectedHandler );
+	session.connect(apiKey, Token)
+
+	function sessionConnectedHandler(event) {
+		alert('You have connected to a Session');
+	}
+  </script>
+</head>
+<body>
+
+<h1>This is a test to see if I can connect to the session using the OpenTok API</h1>
+
+</body>
+</html>
