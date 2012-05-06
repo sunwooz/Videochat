@@ -11,3 +11,15 @@
 #postBody {
 	text-align:center;
 }
+body p {
+	font-size:16px;
+	font-family:Helvetica;
+}
+#donts {
+	border:dotted black;
+	padding:20px;
+}
+#dos {
+	border:dotted black;
+	padding:20px;
+}

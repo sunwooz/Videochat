@@ -3,7 +3,8 @@ Videochat::Application.routes.draw do
   resources :posts do
     resources :comments
   end
-
+  match '/contact' => 'pages#contact'
+  match '/about' => 'pages#about'
   root :to => 'pages#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -17,6 +17,7 @@
 	session.connect(apiKey, token);
 	var publisher;
 	function sessionConnectedHandler(event) {
+		alert('You have connected')
 		var streams = event.streams;
 		for ( var i = 0; i<streams.length; i++ ) {
 			var newDivId = "streams" + streams[i].streamId;
@@ -31,7 +32,50 @@
 </head>
 <body>
 
-<h1 style="text-align:center;">Welcome To The Organic Language Learning Page</h1>
+<h1 style="text-align:center;">Want to Learn a New Language?</h1>
+<h2 style="text-align:center;">The Do's and Dont's of Language Education</h2>
+<br/>
+
+<div id="donts">
+	<h1>DO NOT</h1><br/>
+	<p>
+		<h2><b>Attend Classes</b></h2>
+		<p>(Kids will have no choice, sorry)</p>
+		<p>
+			<ul>
+				<li>Teachers cannot give you individual attention</li>
+				<li>No one around you who speaks the language fluently</li>
+				<li>No time to actually practice speaking</li>
+				<li>0 fun = 0 retention</li>
+			</ul>
+		</p>
+		
+		<h2><b>Be Shy</b></h2>
+		<p>(Don't worry about your accent)</p>
+		<p>
+			<ul>
+				<li>Being embarrassed about your grammar/accent is a language killer</li>
+				<li>Don't be afraid of making mistakes</li>
+			</ul>
+		</p>
+	</p>
+</div>
+
+<br/>
+
+<div id="dos">
+	<h1>DO</h1>
+	<p>
+		<h2><b>Travel</b></h2>
+		<p>
+			<ul>
+				<li>Hearing and Speaking your target language everyday is the BEST way to learn a new language</li>
+				<li>Spontaneous situations allows for on-the-spot thinking</li>
+			</ul>
+		</p>
+		<h2><b>
+</div>
+
 <div id="publisher">
 <div id="myPublisher"></div>
 </div>
