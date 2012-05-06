@@ -1,0 +1,13 @@
+#publisher {
+	margin-left:280px;
+	margin-top:20px;
+}
+.container {
+	width:800px;
+}
+#postTitle {
+	text-align:center;
+}
+#postBody {
+	text-align:center;
+}
