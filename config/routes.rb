@@ -5,6 +5,7 @@ Videochat::Application.routes.draw do
   end
   match '/contact' => 'pages#contact'
   match '/about' => 'pages#about'
+  match '/room' => 'pages#room'
   root :to => 'pages#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

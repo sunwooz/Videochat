@@ -6,20 +6,21 @@
 	width:800px;
 }
 #postTitle {
-	text-align:center;
+	text-align:left;
 }
 #postBody {
-	text-align:center;
+	text-align:left;
+	line-height:20px;
 }
 body p {
 	font-size:16px;
 	font-family:Helvetica;
 }
 #donts {
-	border:dotted black;
+	border:solid black;
 	padding:20px;
 }
 #dos {
-	border:dotted black;
+	border:solid; black;
 	padding:20px;
-}
+{

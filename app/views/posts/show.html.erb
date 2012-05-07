@@ -19,17 +19,20 @@
               :class => 'btn btn-danger' %>
 </div>
 <hr/>
+<div id="comments">
 <h1>Comments</h1>
 <br/>
-<%= render @post.comments %>
+	<p id="commentshow">
+		<%= render @post.comments %>
+	</p>
+</div>
 <hr/>
-
+<div id="commentform">
 <%= form_for [@post, @comment] do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 	<%= f.label :body %>
 	<%= f.text_area :body %>
-	<p>
-		<%= f.submit 'comment' %>
-	</p>
+	<%= f.submit 'comment' %>
 <% end %>
+</div>

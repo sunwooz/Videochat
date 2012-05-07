@@ -17,7 +17,6 @@
 	session.connect(apiKey, token);
 	var publisher;
 	function sessionConnectedHandler(event) {
-		alert('You have connected')
 		var streams = event.streams;
 		for ( var i = 0; i<streams.length; i++ ) {
 			var newDivId = "streams" + streams[i].streamId;
@@ -31,7 +30,7 @@
   </script>
 </head>
 <body>
-
+	
 <h1 style="text-align:center;">Want to Learn a New Language?</h1>
 <h2 style="text-align:center;">The Do's and Dont's of Language Education</h2>
 <br/>
@@ -55,13 +54,12 @@
 		<p>
 			<ul>
 				<li>Being embarrassed about your grammar/accent is a language killer</li>
-				<li>Don't be afraid of making mistakes</li>
+				<li>Don't fbe afraid of making mistakes</li>
 			</ul>
 		</p>
 	</p>
 </div>
 
-<br/>
 
 <div id="dos">
 	<h1>DO</h1>
@@ -73,10 +71,17 @@
 				<li>Spontaneous situations allows for on-the-spot thinking</li>
 			</ul>
 		</p>
-		<h2><b>
+		<h2><b>Placeholder</b></h2>
+		<p>
+			<ul>
+				<li>a</li>
+				<li>b</li>
+				<li>c</li>
+			</ul>
+		</p>
 </div>
 
-<div id="publisher">
+<div id="publisher"></div>
 <div id="myPublisher"></div>
 </div>
 </body>

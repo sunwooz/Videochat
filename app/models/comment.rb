@@ -4,4 +4,5 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   
   validates_presence_of :name, :body
+  validates_length_of :body, :within => 1..200
 end
