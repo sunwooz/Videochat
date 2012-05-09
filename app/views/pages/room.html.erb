@@ -2,53 +2,33 @@
 <head>
 	<title>Test room</title>
 	<script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
-  	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
-  	<script type="text/javascript">
-  	var apiKey = "<%= @api_key %>";
-    var sessionId = "<%= @session %>";
-    var token = "<%= @token %>";
+	  <script type="text/javascript">
+	  	var apiKey = '<%= @api_key %>';
+	    var sessionId = '<%= @session %>';
+	    var token = '<%= @token %>';
 
-	TB.setLogLevel(TB.DEBUG);
-	var session = TB.initSession(sessionId);
-	session.addEventListener('sessionConnected', sessionConnectedHandler);
-	session.addEventListener('streamCreated', streamCreatedHandler);
-	session.connect(apiKey, token);
-	var publisher;
-	function sessionConnectedHandler(event) {
-		alert('You have connected');
-		publisher = session.publish('myPublisher');
-		var streams = event.streams;
-		for ( var i = 0; i<streams.length; i++ ) {
-			var newDivId = "streams" + streams[i].streamId;
-			var newDiv = $('<div />', {id: newDivId});
-			$( 'body' ).append( newDiv );
+		TB.setLogLevel(TB.DEBUG);
 
-			session.subscribe( streams[i], newDivId );
+		var session = TB.initSession(sessionId);
+		session.addEventListener('sessionConnected', sessionConnectedHandler);
+		session.connect(apiKey, token);
+		var publisher;
+		function sessionConnectedHandler(event) {
+			var streams = event.streams;
+			for ( var i = 0; i<streams.length; i++ ) {
+				var newDivId = "streams" + streams[i].streamId;
+				var newDiv = $('<div />', {id: newDivId});
+				$( 'body' ).append( newDiv );
+
+				session.subscribe( streams[i], newDivId );
+			}
+			publisher = session.publish('myPublisher');
 		}
-		
-	}
-	function streamCreatedHandler(event) {
-		alert('You have connected to the stream');
-		for (var i = 0; i < event.streams.length; i++) {
-		    // Only display others' streams, not those that the client publishes.
-	        if (event.streams[i].connection.connectionId != event.target.connection.connectionId) {
-	               displayStream(stream);
-	        }
-	    }
-	}
-	function displayStream(stream) {
-		var div = document.createElement('div');
-		div.setAttribute('id', 'stream' + stream.streamId);
-	    var streamsContainer = document.getElementById('streamsContainer');
-	    streamsContainer.appendChild(div);
-	    var divProps = {width: 400, height:300, audioEnabled:true};			
-	    subscriber = session.subscribe(stream, 'stream' + stream.streamId, divProps);
-	}
   </script>
 </head>
 <body>
 	<h1>test room</h1>
-	<div id="myPublisher"></div>
-	<div id="streamsContainer"></div>	
+	<div id="myPublisher"></div>	
 </body>

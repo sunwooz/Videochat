@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   end
   
   def room
-    @api_key = "14991521"        # Replace with your OpenTok API key.
-    @api_secret = "df63492d334eaef0eccea97185f5ce688860f1b3"  # Replace with your OpenTok API secret.
+    @api_key = "15025822"        # Replace with your OpenTok API key.
+    @api_secret = "ffe2c7919d9364e7f8f9154eaa5f33639bcbcee6"  # Replace with your OpenTok API secret.
 
     @opentok = OpenTok::OpenTokSDK.new @api_key, @api_secret
     @session = @opentok.create_session request.remote_addr
