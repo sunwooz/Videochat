@@ -17,7 +17,7 @@
 	    var publisher;
 
 	    function sessionConnectedHandler(event) {
-	      publisher = session.publish('myPublisherDiv');
+	      publisher = session.publish('myPublisher');
 
 	      // Subscribe to streams that were in the session when we connected
 	      subscribeToStreams(event.streams);
