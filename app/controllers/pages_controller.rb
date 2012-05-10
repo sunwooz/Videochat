@@ -17,6 +17,9 @@ class PagesController < ApplicationController
     @api_secret = "ffe2c7919d9364e7f8f9154eaa5f33639bcbcee6"  # Replace with your OpenTok API secret.
 
     @opentok = OpenTok::OpenTokSDK.new @api_key, @api_secret
+    @session = '1_MX4xNTAyNTgyMn4xMC4xMjUuNTEuNTR-MjAxMi0wNS0wOSAwNDo1NDoxNS4xMjA1OTUrMDA6MDB-MC40NzI2OTgyNjI3NjF-'
+
+    @token = @opentok.generate_token :session_id => @session, :role => OpenTok::RoleConstants::PUBLISHER, :connection_data => "username=Bob,level=4"
   end
   
   def contact
