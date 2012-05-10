@@ -39,7 +39,7 @@
 	        // Create the div to put the subscriber element in to
 	        var div = document.createElement('div');
 	        div.setAttribute('id', 'stream' + streams[i].streamId);
-	        $('.container').append(div);
+	        $('.videos').append(div);
 
 	        // Subscribe to the stream
 	        session.subscribe(streams[i], div.id);
@@ -47,7 +47,7 @@
 	    }	
   	</script>
 </head>
-	<div class="container">
+	<div class="videos">
 	<h1>test room</h1>
 	<h2>Room Information</h2>
 	<p>
