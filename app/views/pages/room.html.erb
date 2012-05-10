@@ -1,7 +1,6 @@
 <head>
 	<title>Test room</title>
 	<script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
 	<script type="text/javascript">
 	  	var apiKey = '<%= @api_key %>';
@@ -12,21 +11,41 @@
 
 		var session = TB.initSession(sessionId);
 		session.addEventListener('sessionConnected', sessionConnectedHandler);
+		session.addEventListener('streamCreated', streamCreatedHandler);
 		session.connect(apiKey, token);
 		
 		var publisher;
+		
 		function sessionConnectedHandler(event) {
-			alert('You have Connected to the Room');
+			//Puts self.stream into myPublisher div id
 			publisher = session.publish('myPublisher');
-			var streams = event.streams;
-			for ( var i = 0; i<streams.length; i++ ) {
-				var newDivId = "streams" + streams[i].streamId;
-				var newDiv = $('<div />', {id: newDivId});
-				$( 'body' ).append( newDiv );
-
-				session.subscribe( streams[i], newDivId );
+			
+			//subscribe to streams that were in the session when we connected
+			subscribeToStreams(event.streams);
+		}
+		
+		function streamCreatedHandler(event) {
+			//Subscribe to any new streams that are created
+			subscribeToStreams(event.streams);
+		}
+		
+		function subscribeToStreams(streams) {
+			for (var i = 0; i < streams.length; i++) {
+				//Make sure we don't subscribe to ourself
+				if (streams[i].connection.connectionId == session.connection.connectionId) {
+					return;
+				}
+				
+				//Create the div to put the subscriber element in to
+				var div = document.createElement('div');
+				div.setAttribute('id', 'stream' + streams[i].streamId);
+				document.body.appendChild(div);
+				
+				//Subscribe to the stream
+				session.subscribe(stream[i], div.id);
 			}
 		}
+		
 		
   	</script>
 </head>
@@ -35,9 +54,6 @@
 	<h2>Room Information</h2>
 	<p>
 		<b>SessionId</b>: 1_MX4xNTAyNTgyMn4xMC4xMjUuNTEuNTR-MjAxMi0wNS0wOSAwNDo1NDoxNS4xMjA1OTUrMDA6MDB-MC40NzI2OTgyNjI3NjF-
-	</p>
-	<p>
-		<b>Token</b>: T1==cGFydG5lcl9pZD0xNTAyNTgyMiZzaWc9NGU4NWE3MjI3NjU3NjM2MDA1NmJiN2M1ZTkwYWJhNWM5YTY5ZTlmMTpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0eE5UQXlOVGd5TW40eE1DNHhNalV1TlRFdU5UUi1NakF4TWkwd05TMHdPU0F3TkRvMU5Eb3hOUzR4TWpBMU9UVXJNREE2TURCLU1DNDBOekkyT1RneU5qSTNOakYtJmNyZWF0ZV90aW1lPTEzMzY1MzkyNTUmbm9uY2U9MC43NjgyNjg1MjI4NTA1ODEmY29ubmVjdGlvbl9kYXRhPXVzZXJuYW1lJTNEQm9iJTJDbGV2ZWwlM0Q0
 	</p>
 	<br/>
 	<div id="myPublisher"></div>	
