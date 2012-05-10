@@ -1,0 +1,47 @@
+var apiKey = '15025822';
+var sessionId = '1_MX4xNTAyNTgyMn4xMC43MC4yMjMuMTA3fjIwMTItMDUtMDkgMDQ6NTU6NTQuMjc1MDM0KzAwOjAwfjAuMDkzNTQxMTk5ODg2NX4';
+var token = 'T1==cGFydG5lcl9pZD0xNTAyNTgyMiZzaWc9ODZkMDU3Nzg5NWUwZjQyZDI0OTc0NjQ0M2IzOGY0YzNhZmQyYTkzNDpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0eE5UQXlOVGd5TW40eE1DNDNNQzR5TWpNdU1UQTNmakl3TVRJdE1EVXRNRGtnTURRNk5UVTZOVFF1TWpjMU1ETTBLekF3T2pBd2ZqQXVNRGt6TlRReE1UazVPRGcyTlg0JmNyZWF0ZV90aW1lPTEzMzY1MzkzNTQmbm9uY2U9MC45MzU5NDQxMjU2ODMzNjU2JmNvbm5lY3Rpb25fZGF0YT11c2VybmFtZSUzREJvYiUyQ2xldmVsJTNENA==';
+
+TB.setLogLevel(TB.DEBUG);
+
+var session = TB.initSession(sessionId);
+session.addEventListener('sessionConnected', sessionConnectedHandler);
+session.connect(apiKey, token);
+var publisher;
+function sessionConnectedHandler(event) {
+var streams = event.streams;
+for ( var i = 0; i<streams.length; i++ ) {
+var newDivId = "streams" + streams[i].streamId;
+var newDiv = $('<div />', {id: newDivId});
+$( 'body' ).append( newDiv );
+
+session.subscribe( streams[i], newDivId );
+}
+publisher = session.publish('myPublisher');
+}
+
+
+-----------------------------------------------------------
+
+
+var apiKey = '15025822';
+	    var sessionId = '1_MX4xNTAyNTgyMn4xMC4xMjUuNTEuNTR-MjAxMi0wNS0wOSAwNDo1NDoxNS4xMjA1OTUrMDA6MDB-MC40NzI2OTgyNjI3NjF-';
+	    var token = 'T1==cGFydG5lcl9pZD0xNTAyNTgyMiZzaWc9NGU4NWE3MjI3NjU3NjM2MDA1NmJiN2M1ZTkwYWJhNWM5YTY5ZTlmMTpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0eE5UQXlOVGd5TW40eE1DNHhNalV1TlRFdU5UUi1NakF4TWkwd05TMHdPU0F3TkRvMU5Eb3hOUzR4TWpBMU9UVXJNREE2TURCLU1DNDBOekkyT1RneU5qSTNOakYtJmNyZWF0ZV90aW1lPTEzMzY1MzkyNTUmbm9uY2U9MC43NjgyNjg1MjI4NTA1ODEmY29ubmVjdGlvbl9kYXRhPXVzZXJuYW1lJTNEQm9iJTJDbGV2ZWwlM0Q0';
+
+		TB.setLogLevel(TB.DEBUG);
+
+		var session = TB.initSession(sessionId);
+		session.addEventListener('sessionConnected', sessionConnectedHandler);
+		session.connect(apiKey, token);
+		var publisher;
+		function sessionConnectedHandler(event) {
+			var streams = event.streams;
+			for ( var i = 0; i<streams.length; i++ ) {
+				var newDivId = "streams" + streams[i].streamId;
+				var newDiv = $('<div />', {id: newDivId});
+				$( 'body' ).append( newDiv );
+
+				session.subscribe( streams[i], newDivId );
+			}
+			publisher = session.publish('myPublisher');
+		}
