@@ -12,10 +12,12 @@
 
 		var session = TB.initSession(sessionId);
 		session.addEventListener('sessionConnected', sessionConnectedHandler);
-		session.addEventListener('streamCreated', streamCreatedHandler);
 		session.connect(apiKey, token);
 		
-		function streamCreatedHandler(event) {
+		var publisher;
+		function sessionConnectedHandler(event) {
+			alert('You have Connected to the Room');
+			publisher = session.publish('myPublisher');
 			var streams = event.streams;
 			for ( var i = 0; i<streams.length; i++ ) {
 				var newDivId = "streams" + streams[i].streamId;
@@ -24,11 +26,6 @@
 
 				session.subscribe( streams[i], newDivId );
 			}
-		}
-		
-		var publisher;
-		function sessionConnectedHandler(event) {
-			alert('You have Connected to the Room');
 		}
 		
   	</script>
