@@ -1,4 +1,5 @@
 Videochat::Application.routes.draw do
+  root :to => 'posts#index'
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
@@ -9,10 +10,9 @@ Videochat::Application.routes.draw do
   end
   
   match '/contact' => 'pages#contact'
-  match '/about' => 'pages#about'
   match '/room' => 'pages#room'
   match '/newsession' => 'pages#newsession'
-  root :to => 'posts#index'
+  
   
   
   
