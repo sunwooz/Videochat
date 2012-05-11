@@ -24,12 +24,24 @@
 			  <li><%= link_to "Contact", '/contact' %></li>
 			  <li><%= link_to "Video Room", '/room' %></li>
 			  <li><%= link_to "New SessionId", '/newsession' %>
+			  <% if current_user %>
+			  <li><%= link_to "Logout", log_out_path %></li>
+			  <% else %>
+			  <li><%= link_to "SignUp", '/sign_up' %></li>
+			  <li><%= link_to "Login", '/log_in' %></li>
+			  <% end %>
 	        </ul>
 	      </div>
 	    </div>
 	  </div>
 	</div>
 <div class="container">
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
+	<% if current_user %>
+		Logged in as <%= current_user.email %>
+	<% end %>
 <%= yield %>
 </div>
 

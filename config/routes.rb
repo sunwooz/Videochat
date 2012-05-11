@@ -1,13 +1,21 @@
 Videochat::Application.routes.draw do
-  
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  resources :users
+  resources :sessions
   resources :posts do
     resources :comments
   end
+  
   match '/contact' => 'pages#contact'
   match '/about' => 'pages#about'
   match '/room' => 'pages#room'
   match '/newsession' => 'pages#newsession'
   root :to => 'pages#index'
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
