@@ -2,32 +2,6 @@
 <html>
 <head>
   <title>VideoChat Index</title>
-  <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-
-  <script type="text/javascript">
-  	var apiKey = '1127';
-    var sessionId = '14685d1ac5907f4a2814fed28294d3f797f34955';
-    var token = 'devtoken';
-
-	TB.setLogLevel(TB.DEBUG);
-
-	var session = TB.initSession(sessionId);
-	session.addEventListener('sessionConnected', sessionConnectedHandler);
-	session.connect(apiKey, token);
-	var publisher;
-	function sessionConnectedHandler(event) {
-		var streams = event.streams;
-		for ( var i = 0; i<streams.length; i++ ) {
-			var newDivId = "streams" + streams[i].streamId;
-			var newDiv = $('<div />', {id: newDivId});
-			$( 'body' ).append( newDiv );
-			
-			session.subscribe( streams[i], newDivId );
-		}
-		publisher = session.publish('myPublisher');
-	}
-  </script>
 </head>
 <body>
 	
@@ -81,8 +55,6 @@
 		</p>
 </div>
 
-<div id="publisher"></div>
-<div id="myPublisher"></div>
 </div>
 </body>
 </html>

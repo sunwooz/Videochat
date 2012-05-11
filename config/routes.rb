@@ -12,7 +12,7 @@ Videochat::Application.routes.draw do
   match '/about' => 'pages#about'
   match '/room' => 'pages#room'
   match '/newsession' => 'pages#newsession'
-  root :to => 'pages#index'
+  root :to => 'posts#index'
   
   
   
