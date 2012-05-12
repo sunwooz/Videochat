@@ -16,11 +16,10 @@ body p {
 	font-size:16px;
 	font-family:Helvetica;
 }
-#donts {
-	border:solid black;
-	padding:20px;
+#flash_notice {
+	border:solid red;
+	padding:2px;
+	margin-bottom:10px;
+	margin-top:10px;
+	background-color:#FF874A;
 }
-#dos {
-	border:solid; black;
-	padding:20px;
-{
