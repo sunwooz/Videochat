@@ -1,4 +1,14 @@
 class PagesController < ApplicationController
+  before_filter :logged_in?, :only => [ :room, :newsession ]
+  
+  def logged_in?
+    if session[:user] = current_user
+      current_user
+    else
+      redirect_to log_in_path, :notice => "You do not have access to this page. Please Signup or Login!"
+    end
+  end
+  
   def index
   end
   
@@ -13,11 +23,6 @@ class PagesController < ApplicationController
   end
   
   def room
-    if session[:user] = current_user
-      current_user
-    else
-      redirect_to log_in_path, :notice => "You do not have access to this page. Please Signup or Login"
-    end
     @api_key = "15025822"        # Replace with your OpenTok API key.
     @api_secret = "ffe2c7919d9364e7f8f9154eaa5f33639bcbcee6"  # Replace with your OpenTok API secret.
 

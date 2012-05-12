@@ -1,4 +1,23 @@
 class PostsController < ApplicationController
+  before_filter :admin_auth, :except => [ :index, :show ]
+  before_filter :find_post_by_id, :only => [ :show, :edit, :update, :destroy ]
+  
+  def find_post_by_id
+    @post = Post.find(params[:id])
+  end
+  
+  def admin_auth
+    if current_user
+      if current_user.email == "yangsunwoo@gmail.com"
+        current_user
+      else
+        redirect_to posts_path, :notice => "You must be an admin"
+      end
+    else
+      redirect_to posts_path, :notice => "You must be logged in"
+    end
+  end
+  
   # GET /posts
   # GET /posts.json
   def index
@@ -13,7 +32,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
     @comment = Comment.new
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +52,6 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
   end
 
   # POST /posts
@@ -56,7 +73,6 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -72,7 +88,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|
