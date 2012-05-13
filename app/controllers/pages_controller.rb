@@ -1,15 +1,12 @@
 class PagesController < ApplicationController
   before_filter :logged_in?, :only => [ :room, :newsession ]
-  
+
   def logged_in?
     if session[:user] = current_user
       current_user
     else
       redirect_to log_in_path, :notice => "You do not have access to this page. Please Signup or Login!"
     end
-  end
-  
-  def index
   end
   
   def newsession
@@ -37,5 +34,5 @@ class PagesController < ApplicationController
   
   def about
   end
-  
+
 end
