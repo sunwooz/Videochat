@@ -3,4 +3,10 @@
 	<p>
 		<%= comment.body %>
 	</p>
+	<p>
+		<% if admin? %>
+					<%= link_to "Edit", edit_post_comment_path(comment) %>
+					<%= link_to "Destroy", post_comment_path(comment), :method => :delete, :class => :destroy %>
+		<% end %>
+	</p>
 <% end %>
