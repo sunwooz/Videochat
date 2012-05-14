@@ -1,9 +1,29 @@
-<div style="float:left;">
+<div style="float:left; margin-right:40px;">
 	<h2>Contact Form</h2>
+	<%= form_tag do %>
+	<p>
+		<%= label_tag :subject %>
+		<%= text_field_tag :subject %>
+	</p>
+	<p>
+		<span style="font-size:12px;">Your Email</span><br />
+		<%= text_field_tag :recepient %>
+	</p>
+	<p>
+		<%= label_tag :body %>
+		<%= text_area_tag :body %>
+	</p>
+	<p>
+		<%= submit_tag "Submit" %>
+	</p>
+	<% end %>
+	<p>
+		A copy of this message will be sent to your e-mail address.
+	</p>
 </div>
 	
-<div class="span6">
-	<h2>Get In Touch</h2>
+<div>
+	<h2>Chat Me Up</h2>
 	<p>
 		47 Spring Floral Dr. <br/>
 		New Providence, NJ, 07974 <br/>

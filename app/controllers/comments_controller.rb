@@ -42,6 +42,8 @@ class CommentsController < ApplicationController
   end
   
   def destroy
+    @post = Post.find(params[:id])
+    @comment = @post.comment.find(params[])
     @comment.destroy
 
     respond_to do |format|
@@ -49,6 +51,7 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
   
   
 end
