@@ -1,8 +1,10 @@
 <%= div_for comment do %>
+	<div id="commentbox">
 	<h3><%= comment.name %></h3>
 	<p>
-		<%= comment.body %>
+		<%= markdown(comment.body) %>
 	</p>
+	</div>
 	<p>
 		<% if admin? %>
 					<%= link_to "Edit", edit_post_comment_path(comment) %>

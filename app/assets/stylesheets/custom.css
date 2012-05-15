@@ -33,3 +33,14 @@ body p {
 	font-family:Helvetica;
 	color:#7D71FF;
 }
+#loading {
+	margin-top:200px;
+}
+#commentbox {
+	background-color:#E8E8E8;
+	padding:15px;
+	border-radius:5px;
+}
+.formactions {
+	border-radius:5px;
+}

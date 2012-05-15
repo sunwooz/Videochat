@@ -27,6 +27,7 @@ end
 
 gem 'jquery-rails'
 gem 'opentok'
+gem 'redcarpet', '1.17.2'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', :require => "bcrypt"

@@ -1,6 +1,8 @@
+<% if admin? %>
+	<%= link_to 'New Post', new_post_path, :class => "btn" %>
+<% end %>
+<br/>
 <%= render 'post' %>
 <br/>
 <hr/>
-<% if admin? %>
-	<%= link_to 'New Post', new_post_path %>
-<% end %>
+
