@@ -4,8 +4,6 @@ module ApplicationHelper
     Redcarpet.new(text).to_html.html_safe
   end
   
-  
-  
 private
   def admin?
     if current_user

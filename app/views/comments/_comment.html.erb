@@ -1,6 +1,6 @@
 <%= div_for comment do %>
 	<div id="commentbox">
-	<h3><%= comment.name %></h3>
+	<h2><%= comment.name %></h2> <h4>Posted On: <%= comment.created_at %></h4>
 	<p>
 		<%= markdown(comment.body) %>
 	</p>
