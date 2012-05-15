@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
-    <h1><%= link_to post.title, post_path(post) %></h1>
+    <h1 id="postTitle"><%= link_to post.title, post_path(post) %></h1>
 	<p>Posted On: <%= post.created_at %></p>
-    <p>
+    <p id="postBody">
 		<%= markdown(post.body) %>
 	</p>
 	<% if admin? %>

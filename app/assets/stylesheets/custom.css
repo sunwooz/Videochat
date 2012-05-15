@@ -7,6 +7,10 @@
 }
 #postTitle {
 	text-align:left;
+	font-family:Interstate, Helvetica;
+}
+#postTitle a:hover {
+	color:#0A9600;
 }
 #postBody {
 	text-align:left;
