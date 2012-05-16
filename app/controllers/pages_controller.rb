@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_filter :logged_in?, :only => [ :room, :newsession ]
-
+  
   def logged_in?
     if session[:user] = current_user
       current_user
@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   end
   
   def newsession
+    session[:return_to] ||= request.referer
     @api_key = "15025822"        # Replace with your OpenTok API key.
     @api_secret = "ffe2c7919d9364e7f8f9154eaa5f33639bcbcee6"  # Replace with your OpenTok API secret.
 
@@ -20,12 +21,11 @@ class PagesController < ApplicationController
   end
   
   def room
+    session[:return_to] ||= request.referer
     @api_key = "15025822"        # Replace with your OpenTok API key.
     @api_secret = "ffe2c7919d9364e7f8f9154eaa5f33639bcbcee6"  # Replace with your OpenTok API secret.
-
     @opentok = OpenTok::OpenTokSDK.new @api_key, @api_secret
     @session = '1_MX4xNTAyNTgyMn4xMC4xMDQuMTE1LjIwMH4yMDEyLTA1LTEwIDE2OjM4OjA4LjgxNjA3NCswMDowMH4wLjQ5MzA1ODMxMzI4NH4'
-
     @token = @opentok.generate_token :session_id => @session, :role => OpenTok::RoleConstants::PUBLISHER, :connection_data => "username=Bob,level=4"
   end
   
