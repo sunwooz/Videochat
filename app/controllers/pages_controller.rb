@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     if session[:user] = current_user
       current_user
     else
+      session[:return_to] = request.fullpath
       redirect_to log_in_path, :notice => "You do not have access to this page. Please Signup or Login!"
     end
   end
