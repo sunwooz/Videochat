@@ -10,7 +10,6 @@ class PagesController < ApplicationController
   end
   
   def newsession
-    session[:return_to] ||= request.referer
     @api_key = "15025822"        # Replace with your OpenTok API key.
     @api_secret = "ffe2c7919d9364e7f8f9154eaa5f33639bcbcee6"  # Replace with your OpenTok API secret.
 
@@ -21,7 +20,6 @@ class PagesController < ApplicationController
   end
   
   def room
-    session[:return_to] ||= request.referer
     @api_key = "15025822"        # Replace with your OpenTok API key.
     @api_secret = "ffe2c7919d9364e7f8f9154eaa5f33639bcbcee6"  # Replace with your OpenTok API secret.
     @opentok = OpenTok::OpenTokSDK.new @api_key, @api_secret
