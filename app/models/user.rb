@@ -2,11 +2,20 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :password, :email, :password_confirmation
   before_save :encrypt_password
+  before_create { generate_token(:auth_token) }
   
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
+
+private
+  
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
   
   def encrypt_password
     if password.present?
@@ -23,5 +32,5 @@ class User < ActiveRecord::Base
       nil
     end
   end
-  
+
 end

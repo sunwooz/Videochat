@@ -22,29 +22,28 @@
 	          <li><%= link_to "Blog", posts_path %></li>
 			  <li><%= link_to "Contact", '/contact' %></li>
 			  <li><%= link_to "Video Room", '/room' %></li>
-			  <li><%= link_to "New SessionId", '/newsession' %>
-			  <% if current_user %>
+			  <li><%= link_to "New SessionId", '/newsession' %></li>
 			  <li><%= link_to "Logout", log_out_path %></li>
-			  <% else %>
 			  <li><%= link_to "SignUp", '/sign_up' %></li>
 			  <li><%= link_to "Login", '/log_in' %></li>
-			  <% end %>
 	        </ul>
 	      </div>
 	    </div>
 	  </div>
 	</div>
-<div class="container">
+<div class="container-fluid">
 	<% flash.each do |name, msg| %>
 		<%= content_tag :div, msg, :id => "flash_#{name}" %>
 	<% end %>
-	<% if current_user %>
-		<div id="loggedinas">
-		Logged in as <%= current_user.email %>
-		<br />
+	<div class="row-fluid">
+		<div class="span6">
+			<%= yield %>
 		</div>
-	<% end %>
-<%= yield %>
+		<div class="span3">
+			<h2>About me</h2>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</div>
+</div>
 </div>
 
 </body>
