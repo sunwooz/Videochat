@@ -67,3 +67,36 @@ body p {
 a.previous_page {
 	border-left:solid #DDD 1px;
 }
+.empty-square {
+	border:solid black 2px;
+	width:15px;
+	height:15px;
+	border-color:black;
+	display:inline-block;
+}
+.full-square {
+	display:inline-block;
+	border:solid black 2px;
+	width:15px;
+	height:15px;
+	background-color:black;
+}
+.skill-name {
+	font-family:Tahoma;
+	font-size:30px;
+	margin-top:10px;
+}
+.squares {
+	margin-top:10px;
+}
+.skills {
+	margin:20px;
+	padding-left:15px;
+	width:300px;
+}
+#programming {
+	float:left;
+}
+#OSs {
+	margin-left:400px;
+}

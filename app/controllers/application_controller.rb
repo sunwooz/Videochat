@@ -1,11 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
-  
+  helper_method :logged_in?
+         
 private
-  def current_user
-    if cookies[:auth_token]
-      @current_user = User.find(params[:auth_token])
+         
+  def logged_in?
+    if session[:user_id] == @user.id
+      @user
+    else
+      nil
     end
   end
+  
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  
 end

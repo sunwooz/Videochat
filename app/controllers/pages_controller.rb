@@ -33,5 +33,9 @@ class PagesController < ApplicationController
   
   def about
   end
+  
+  def skill
+    
+  end
 
 end

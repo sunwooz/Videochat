@@ -13,6 +13,7 @@ Videochat::Application.routes.draw do
   match '/contact' => 'pages#contact'
   match '/room' => 'pages#room'
   match '/newsession' => 'pages#newsession'
+  match '/skills' => 'pages#skill'
   
   
   
