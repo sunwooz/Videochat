@@ -19,9 +19,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
-
     respond_to do |format|
+      @user = User.new
       format.html # new.html.erb
       format.json { render json: @user }
     end
@@ -29,7 +28,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-
   end
 
   def create
