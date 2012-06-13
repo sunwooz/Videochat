@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :password, :email, :password_confirmation
+  attr_accessible :password, :email, :password_confirmation, :location
   before_save :encrypt_password
   before_create { generate_token(:auth_token) }
   

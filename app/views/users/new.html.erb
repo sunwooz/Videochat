@@ -24,7 +24,13 @@
 		<%= f.label :password_confirmation %>
 		<%= f.password_field :password_confirmation %>
 	</p>
-	<p class="button"><%= f.submit %></p>
+	<p>
+		<%= f.label :country %>
+		<%= f.country_select :location, {priority: %w(US CN TW)} %>
+	</p>	
+	<p class="button">
+		<%= f.submit %>
+	</p>
 	<p>
 		If you're already a member, please <a href="/log_in">Login</a>
 	</p>

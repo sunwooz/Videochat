@@ -1,0 +1,3 @@
+<%= @users.each do |u| %>
+	<li><%= link_to u.email, user_path(u) %> <%= link_to 'Destroy', user_path(u), :method => :delete, :class => :delete_user %></li>
+<% end %>

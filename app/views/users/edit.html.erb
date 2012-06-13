@@ -1,0 +1,11 @@
+<h1>Settings</h1><br/>
+
+<%= form_for @user do |f| %>
+	<p>
+		<%= f.label :country %>
+		<%= f.country_select :location, {priority: %w(US CN TW)} %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

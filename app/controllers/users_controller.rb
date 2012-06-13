@@ -18,8 +18,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /posts/new
-  # GET /posts/new.json
   def new
     @user = User.new
 
@@ -29,12 +27,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /posts/1/edit
   def edit
+    @user = User.find(params[:id])
+
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @user = User.new(params[:user])
 
@@ -50,13 +47,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.json
   def update
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      if current_user.update_attributes(params[:user])
+        format.html { redirect_to user_path(current_user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -65,11 +60,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
-
     respond_to do |format|
       format.html { redirect_to users_path }
       format.json { head :no_content }

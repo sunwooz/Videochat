@@ -22,8 +22,10 @@
 	          <li><%= link_to "Blog", posts_path %></li>
 			  <li><%= link_to "Contact", '/contact' %></li>
 			  <li><%= link_to "Skills", '/skills' %></li>
+			  <li><%= link_to "Users", users_path %></li>
 			  <% if current_user %>
-			  <li><%= link_to current_user.email %></li>
+			  <li><%= link_to current_user.email, user_path(current_user) %></li>
+			  <li><%= link_to 'Settings', edit_user_path(current_user) %></li>
 			  <li><%= link_to "Video Room", '/room' %></li>
 			  <li><%= link_to "New SessionId", '/newsession' %></li>
 			  <li><%= link_to "Logout", log_out_path %></li>

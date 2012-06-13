@@ -24,7 +24,7 @@ group :assets do
   gem 'less'
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'carmen-rails', '~> 1.0.0.beta3'
 gem 'jquery-rails'
 gem 'opentok'
 gem 'redcarpet', '1.17.2'
