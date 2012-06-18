@@ -1,0 +1,5 @@
+<ul>
+<% @stories.each do |f| %>
+	<li><h2><%= f.name %></h2> <%= link_to 'Destroy', course_story_path(f), :class => 'btn btn-danger', :method => :delete %></li>
+<% end %>
+</ul>

@@ -22,7 +22,7 @@
 	          <li><%= link_to "Blog", posts_path %></li>
 			  <li><%= link_to "Contact", '/contact' %></li>
 			  <li><%= link_to "Skills", '/skills' %></li>
-			  <li><%= link_to "Users", users_path %></li>
+			  <li><%= link_to "Users", users_path %>
 			  <% if current_user %>
 			  <li><%= link_to current_user.email, user_path(current_user) %></li>
 			  <li><%= link_to 'Settings', edit_user_path(current_user) %></li>
@@ -33,16 +33,39 @@
 			  <li><%= link_to "SignUp", '/sign_up' %></li>
 			  <li><%= link_to "Login", '/log_in' %></li>
 			  <% end %>
+			  <% if admin? %>
+			  
+			  <% end %>
 	        </ul>
 	      </div>
 	    </div>
 	  </div>
 	</div>
 <div class="container">
-	<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, :id => "flash_#{name}" %>
-	<% end %>
+	<div class="span2 admin_ui">
+		<% if admin? %>
+		<p>
+			<%= link_to new_language_path, :class => 'btn btn-success' do %>
+			    <i class="icon-plus icon-white"></i> New Language
+			<% end %>
+		</p>
+		<p>
+			<%= link_to new_course_path, :class => 'btn btn-success' do %>
+				<i class="icon-cog icon-white"></i> New Course
+			<% end %>
+		</p>
+		<p><%= link_to 'Languages', languages_path, :class => 'btn btn-success' %></p>
+		<p><%= link_to 'Courses', courses_path, :class => 'btn btn-success' %></p>
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>
+		<% end %>
+		
+	</div>
+	<div class="span5">
+	
 	<%= yield %>
+	</div>
 </div>
 
 </body>

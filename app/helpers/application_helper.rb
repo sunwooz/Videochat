@@ -4,15 +4,13 @@ module ApplicationHelper
     Redcarpet.new(text).to_html.html_safe
   end
   
-# private
-#   def admin?
-#     if current_user
-#       if current_user.email == "yangsunwoo@gmail"
-#         current_user
-#       end
-#     else
-#       nil
-#     end
-#   end
+private
+  def admin?
+    if current_user
+      if current_user.email == 'yangsunwoo@gmail.com'
+        current_user
+      end
+    end
+  end
   
 end

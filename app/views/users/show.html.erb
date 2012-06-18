@@ -1,2 +1,6 @@
 <h1><%= @user.email %></h1>
-<h2>Location: <%= @user.location %></h2>
+<% if @user.location %>
+	<h2>Location: <%= @user.location %></h2>
+<% else %>
+	<h2><%= link_to 'Update Profile', edit_user_path(@user) %></h2>
+<% end %>

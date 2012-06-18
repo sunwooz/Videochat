@@ -1,0 +1,9 @@
+<%= form_for @course do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :language_id %>
+	<%= f.number_field :language_id %>
+	<%= f.submit 'create course' %>
+<% end %>
+
+<em>10 = English, 11 = Chinese</em>

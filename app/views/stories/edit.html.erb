@@ -1,0 +1,10 @@
+<em>10 = English, 11 = Chinese</em>
+<%= form_for [@course, @story] do |f| %>
+	<%= f.label :primary_language_id %>
+	<%= f.number_field :primary_language_id %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :lesson %>
+	<%= f.text_area :lesson %>
+	<%= f.submit 'Update' %>
+<% end %>

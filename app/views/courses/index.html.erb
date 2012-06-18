@@ -1,0 +1,14 @@
+<% @courses.each do |f| %>
+	<h2>Name: <%= f.name %></h2>
+	<p>Language: <%= id_to_language(f.language_id) %></p>
+	<p>Course Id: <%= f.id %></p>
+	<p>
+		<%= link_to course_path(f), :class => 'btn btn-success' do %>
+			<i class="icon-ok icon-white"></i> Show
+		<% end %>
+		<%= link_to course_path(f), :class => 'btn btn-danger', :method => :delete do %>
+			<i class='icon-trash icon-white'></i> Destroy
+		<% end %>
+	</p>
+			
+<% end %>

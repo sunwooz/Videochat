@@ -11,31 +11,53 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609012650) do
+ActiveRecord::Schema.define(:version => 20120617003458) do
 
   create_table "comments", :force => true do |t|
+    t.string    "name"
+    t.text      "body"
+    t.integer   "post_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
+  end
+
+  create_table "courses", :force => true do |t|
+    t.integer  "language_id"
     t.string   "name"
-    t.text     "body"
-    t.integer  "post_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "languages", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "title"
+    t.text      "body"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
+  end
+
+  create_table "stories", :force => true do |t|
+    t.integer  "primary_language_id"
+    t.integer  "course_id"
+    t.string   "name"
+    t.text     "lesson"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "auth_token"
-    t.string   "location"
+    t.string    "email"
+    t.string    "password_hash"
+    t.string    "password_salt"
+    t.timestamp "created_at",    :null => false
+    t.timestamp "updated_at",    :null => false
+    t.string    "auth_token"
+    t.string    "location"
   end
 
 end

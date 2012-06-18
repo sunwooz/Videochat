@@ -1,4 +1,17 @@
 class UsersController < ApplicationController
+  before_filter :admin_auth, :only => [ :destroy ]
+  
+  def admin_auth
+    if current_user
+      if current_user.email == "yangsunwoo@gmail.com"
+        current_user
+      else
+        redirect_to posts_path, :notice => "You must be an admin"
+      end
+    else
+      redirect_to posts_path, :notice => "You must be logged in"
+    end
+  end
   
   def index
     @users = User.all
@@ -46,14 +59,13 @@ class UsersController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if current_user.update_attributes(params[:user])
         format.html { redirect_to user_path(current_user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: current_user.errors, status: :unprocessable_entity }
       end
     end
   end

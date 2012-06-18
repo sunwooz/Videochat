@@ -1,0 +1,10 @@
+<% @languages.each do |f| %>
+	<h1>Name: <%= f.name %></h1>
+	<p>Language Created On: <%= f.created_at %></p>
+	<p>ID: <%= f.id %></p>
+	<p>
+		<%= link_to language_path(f), :class=> 'btn btn-danger', :method => :delete do %>
+			<i class='icon-trash icon-white'></i> Destroy
+		<% end %>
+	</p>
+<% end %>
