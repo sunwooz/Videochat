@@ -42,8 +42,8 @@
 	  </div>
 	</div>
 <div class="container">
-	<div class="span2 admin_ui">
-		<% if admin? %>
+	<% if admin? %>
+	<div class="span2 admin_ui">	
 		<p>
 			<%= link_to new_language_path, :class => 'btn btn-success' do %>
 			    <i class="icon-plus icon-white"></i> New Language
@@ -58,14 +58,16 @@
 		<p><%= link_to 'Courses', courses_path, :class => 'btn btn-success' %></p>
 		<% flash.each do |name, msg| %>
 			<%= content_tag :div, msg, :id => "flash_#{name}" %>
-		<% end %>
-		<% end %>
-		
+		<% end %>	
 	</div>
 	<div class="span5">
-	
+		<%= yield %>
+	</div>
+	<% else %>
+	<div class="span7">
 	<%= yield %>
 	</div>
+	<% end %>
 </div>
 
 </body>

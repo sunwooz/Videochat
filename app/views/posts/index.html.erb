@@ -1,4 +1,6 @@
-<%= link_to 'New Post', new_post_path, :class => "btn" %>
+<%= link_to new_post_path, :class => "btn btn-success" do %>
+	<i class="icon-plus icon-white"></i> New Post
+<% end %>
 <%= will_paginate @posts %>
 <br/>
 <%= render 'post' %>
