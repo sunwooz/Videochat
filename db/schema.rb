@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617003458) do
+ActiveRecord::Schema.define(:version => 20120619205141) do
+
+  create_table "categories", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "comments", :force => true do |t|
     t.string    "name"
@@ -19,6 +23,11 @@ ActiveRecord::Schema.define(:version => 20120617003458) do
     t.integer   "post_id"
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
+  end
+
+  create_table "conversations", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "courses", :force => true do |t|
@@ -48,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120617003458) do
     t.text     "lesson"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "category_id"
   end
 
   create_table "users", :force => true do |t|

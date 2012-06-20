@@ -54,8 +54,14 @@
 				<i class="icon-cog icon-white"></i> New Course
 			<% end %>
 		</p>
+		<p>
+			<%= link_to new_category_path, :class => 'btn btn-success' do %>
+				<i class="icon-white icon-plus"></i> New Category
+			<% end %>
+		</p>
 		<p><%= link_to 'Languages', languages_path, :class => 'btn btn-success' %></p>
 		<p><%= link_to 'Courses', courses_path, :class => 'btn btn-success' %></p>
+		<p><%= link_to 'Categories', categories_path, :class => 'btn btn-success' %></p>	
 		<% flash.each do |name, msg| %>
 			<%= content_tag :div, msg, :id => "flash_#{name}" %>
 		<% end %>	

@@ -7,6 +7,7 @@ Videochat::Application.routes.draw do
   resources :users
   resources :sessions
   resources :languages
+  resources :categories
   resources :courses do
     resources :stories
   end

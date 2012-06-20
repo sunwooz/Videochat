@@ -9,10 +9,13 @@
 	<%= link_to new_course_story_path(@course), :class => 'btn btn-success' do %>
 		<i class="icon-plus icon-white"></i> New Story
 	<% end %>
+	<%= link_to course_path(@course), :method => :delete, :class => 'btn btn-danger' do %>
+		<i class="icon-white icon-trash"></i> Destroy
+	<% end %>
 </p>
 <ol>
 <% @stories.each do |f| %>
-	<li><%= link_to f.name, course_story_path(f) %>
+	<li><%= link_to f.name, course_story_path(f) %> <b><%= id_to_category(f.category_id)%></b>
 	<%= link_to course_story_path(f), :method => :delete, :class => 'btn btn-danger' do %>
 		<i class="icon-trash icon-white"></i> Destroy
 	<% end %></li><br/>

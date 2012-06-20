@@ -1,0 +1,7 @@
+<% @categories.each do |f| %>
+	<h2><%= f.name %></h2>
+	<p>Id: <%= f.id %></p>
+	<%= link_to category_path(f), :method => :delete, :class => 'btn btn-danger' do %>
+		<i class="icon-white icon-trash"></i> Delete
+	<% end %>
+<% end %>

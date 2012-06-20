@@ -6,5 +6,8 @@ module LanguagesHelper
     if testid == 10
       return 'English'
     end
+    if testid == 12
+      return 'Japanese'
+    end
   end
 end
