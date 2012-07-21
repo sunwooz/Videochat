@@ -110,3 +110,12 @@ a.previous_page {
 a.btn:visited {
 	color:white;
 }
+body {
+	background: url(lightpaperfibers.png) repeat;
+}
+h1 {
+	font-family: 'Italiana', serif;
+}
+h1#postTitle {
+	font-family:arial black;
+}

@@ -40,10 +40,9 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
     @course = @story.course
-    
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to @course, notice: 'Story was successfully created. You rock Daniel!' }
+        format.html { redirect_to @course , notice: 'Story was successfully created. You rock Daniel!' }
       else
         format.html { redirect_to @course, notice: 'You suck, something failed' }
       end

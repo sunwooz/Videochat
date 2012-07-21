@@ -12,5 +12,11 @@ module CategoriesHelper
     if catid == 8
       return 'Freestyle'
     end
+    if catid == 9
+      return 'Main Story'
+    end
+    if catid == 10
+      return 'Side Story'
+    end
   end
 end

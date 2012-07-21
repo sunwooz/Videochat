@@ -1,3 +1,4 @@
+<% if admin? %>
 <p>
 	<%= link_to edit_course_story_path(@story), :class => 'btn btn-info' do %>
 		<i class="icon-white icon-pencil"></i> Edit
@@ -11,6 +12,7 @@
 <p>
 	<%= id_to_category(@story.category_id) %>
 </p>
+<% end %>
 <p>
 	<%= link_to @course.name, @course %>
 </p>
@@ -19,10 +21,9 @@
 		<i class="icon-ok icon-white"></i> StoryChat!
 	<% end %>
 </p>
+
 <p>
-	<%= @story.name %>
-</p>
-<h1>Lesson</h1>
-<p>
-	<%= markdown(@story.lesson) %>
+	<div class="Japanese">
+		<%= markdown(@story.lesson) %>
+	</div>
 </p>

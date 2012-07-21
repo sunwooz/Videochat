@@ -37,4 +37,21 @@ class CoursesController < ApplicationController
       format.html { redirect_to courses_path }
     end
   end
+  
+  def edit
+    @course = Course.find(params[:id])
+  end
+  
+  def update
+    @course = Course.find(params[:id])
+    respond_to do |format|
+      if @course.update_attributes(params[:course])
+        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

@@ -10,6 +10,8 @@ private
       if current_user.email == 'yangsunwoo@gmail.com'
         current_user
       end
+    else
+      return nil
     end
   end
   

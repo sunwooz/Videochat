@@ -1,10 +1,13 @@
-<% @courses.each do |f| %>
+<% @courses.reverse.each do |f| %>
 	<h2><%= link_to f.name, course_path(f) %></h2>
 	<p>Language: <%= id_to_language(f.language_id) %></p>
 	<p>Course Id: <%= f.id %></p>
 	<p>
 		<%= link_to course_path(f), :class => 'btn btn-danger', :method => :delete do %>
 			<i class='icon-trash icon-white'></i> Destroy
+		<% end %>
+		<%= link_to edit_course_path(f), :class => 'btn btn-info' do %>
+			<i class="icon-white icon-pencil"></i> Edit
 		<% end %>
 	</p>
 			
